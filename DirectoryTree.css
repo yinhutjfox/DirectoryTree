@@ -1,0 +1,20 @@
+.treeNode
+{
+    position : relative ;
+    margin-left : 20px ;
+}
+.treeNodeName:hover
+{
+    background : azure ;
+    cursor : pointer
+}
+.treeNodeContentDisplay
+{
+    position : relative ;
+    overflow : hidden
+}
+.treeNodeContentHidden
+{
+    position : relative ;
+    overflow : hidden
+}

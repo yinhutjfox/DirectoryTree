@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DirectoryTreeTest</title>
+    <link rel = "stylesheet" href = "./DirectoryTree.css" />
+    <script type = "text/javascript" src = "./DirectoryTree.js"></script>
+</head>
+<body>
+    <div id = "tree"></div>
+    <script>
+	    let treeData = [
+	    	{
+                name : "ddd" ,
+                action : [
+                    {mouseover : function(){console.log(1)}} ,
+	                {click : function(){console.log(2)}}
+                ] ,
+                children : [
+                    {
+                        name : "ccc" ,
+                        children : [
+                            {
+                                name : "sgf" ,
+                                children : []
+                            } ,
+                            {
+                                name : "dffgsf" ,
+                                children : []
+                            } ,
+                            {
+                                name : "dfgh" ,
+                                children : []
+                            }
+                        ]
+                    } ,
+                    {
+                        name : "gsdf" ,
+                        children : [
+                            {
+                                name : "4352" ,
+                                children : [
+                                    {
+                                        name : "dfads" ,
+                                        children : []
+                                    }
+                                ]
+                            }
+                        ]
+                    } ,
+                    {
+                        name : "fda" ,
+                        children : []
+                    }
+                ]
+            } ,
+            {
+            	name : "lalala" ,
+                children : [
+                    {
+                    	name : "dfldkjfl"
+                    } ,
+                    {
+                    	name : "dfl"
+                    } ,
+                    {
+                    	name : "ldsfkjl"
+                    }
+                ]
+            }
+	    ];
+	    DirectoryTree.createTree(document.querySelector("#tree") , treeData);
+    </script>
+</body>
+</html>
