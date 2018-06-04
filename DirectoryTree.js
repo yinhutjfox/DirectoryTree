@@ -1,3 +1,4 @@
+"user strict";
 (function(global)
 {
 	let makeTree = function(dom , data)
