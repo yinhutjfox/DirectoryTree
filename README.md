@@ -1,4 +1,4 @@
-###这是一个用javascript 实现的目录树
+### 这是一个用javascript 实现的目录树
 DirectoryTreeTest.html 是一个演示
 DirectoryTree.js 实现整个树的生成和事件绑定
 通过立即函数将DirectoryTree实例添加到windows对象里，外部直接通过条用DirectoryTree原型链上的createTree进行树的创建
