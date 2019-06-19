@@ -7,6 +7,17 @@
 	let nameKey = 'name';
 	let childrenKey = 'children';
 	let actionKey = 'action';
+	let speed = 125;
+
+	let getNodeName = function(nodeData , nameKeyStr) {
+        let nameTemp = nameKeyStr.split('.');
+        let dataTemp = nodeData;
+        nameTemp.forEach(name => {
+            dataTemp = dataTemp[name]
+        });
+        return dataTemp
+    };
+
 	let makeTree = function(dom , data)
 	{
 		for(let i = 0 ; i < data.length ; ++i)
@@ -14,7 +25,7 @@
 			let treeNode = document.createElement("div");
 			treeNode.setAttribute("class" , "treeNode");
 			let nameNode = document.createElement("div");
-			nameNode.textContent = data[i][nameKey];
+			nameNode.textContent = getNodeName(data[i] , nameKey);
 			nameNode.setAttribute("class" , "treeNodeName");
 			if(data[i][actionKey])
 			{
@@ -70,13 +81,15 @@
 						}
 						self.displayInterval = setInterval(function(){
 							let totalHeight = 0;
+							let diff = 2;
 							for(let j = 0 ; j < contentNode.children.length ; ++j)
 							{
 								totalHeight += contentNode.children[j].clientHeight;
 							}
+							diff = 0 === Math.floor(totalHeight / speed) ? 2 : Math.floor(totalHeight / speed);
 							if(totalHeight > contentNode.clientHeight)
 							{
-								contentNode.style.height = (contentNode.clientHeight + 1) + "px";
+								contentNode.style.height = (contentNode.clientHeight + diff) + "px";
 							}
 							else
 							{
@@ -96,9 +109,16 @@
 							}
 						}
 						self.hiddenInterval = setInterval(function(){
-							if(0 < contentNode.clientHeight)
+                            let totalHeight = 0;
+                            let diff = 2;
+                            for(let j = 0 ; j < contentNode.children.length ; ++j)
+                            {
+                                totalHeight += contentNode.children[j].clientHeight;
+                            }
+                            diff = 0 === Math.floor(totalHeight / speed) ? 2 : Math.floor(totalHeight / speed);
+                            if(0 < contentNode.clientHeight)
 							{
-								contentNode.style.height = (contentNode.clientHeight - 1) + "px";
+								contentNode.style.height = (contentNode.clientHeight - diff) + "px";
 							}
 							else
 							{
