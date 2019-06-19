@@ -1,6 +1,9 @@
 "user strict";
 (function(global)
 {
+	let nameKey = 'name';
+	let childrenKey = 'children';
+	let actionKey = 'action';
 	let makeTree = function(dom , data)
 	{
 		for(let i = 0 ; i < data.length ; ++i)
@@ -8,26 +11,32 @@
 			let treeNode = document.createElement("div");
 			treeNode.setAttribute("class" , "treeNode");
 			let nameNode = document.createElement("div");
-			nameNode.textContent = data[i]["name"];
+			nameNode.textContent = data[i][nameKey];
 			nameNode.setAttribute("class" , "treeNodeName");
-			if(data[i]["action"])
+			if(data[i][actionKey])
 			{
-				for(let j = 0 ; j < data[i]["action"].length ; ++j)
+				for(let j = 0 ; j < data[i][actionKey].length ; ++j)
 				{
-					for(let key in data[i]["action"][j])
+					for(let key in data[i][actionKey][j])
 					{
-						nameNode.addEventListener(key , data[i]["action"][j][key]);
+						nameNode.addEventListener(key , function() {
+							let temp = {
+								dom : nameNode ,
+								data : data[i]
+							};
+							data[i][actionKey][j][key].apply(temp);
+						});
 					}
 				}
 			}
 			let contentNode = document.createElement("div");
 			contentNode.setAttribute("class" , "treeNodeContentHidden");
 			contentNode.style.height = "0px";
-			if(data[i]["children"])
+			if(data[i][childrenKey])
 			{
-				if(0 != data[i]["children"].length)
+				if(0 != data[i][childrenKey].length)
 				{
-					makeTree(contentNode , data[i]["children"]);
+					makeTree(contentNode , data[i][childrenKey]);
 				}
 			}
 			treeNode.appendChild(nameNode);
@@ -109,6 +118,15 @@
 
 	DirectoryTree.prototype.createTree = function(dom , data)
 	{
+		if(dom.getAttribute('nameKey')) {
+			nameKey = dom.getAttribute('nameKey')
+		}
+		if(dom.getAttribute('childrenKey')) {
+			childrenKey = dom.getAttribute('childrenKey')
+		}
+		if(dom.getAttribute('actionKey')) {
+			actionKey = dom.getAttribute('actionKey')
+		}
 		dom.style.marginLeft = "-20px";
 		dom.style.position = "relative";
 		makeTree(dom , data);

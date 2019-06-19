@@ -10,74 +10,74 @@
     <script type = "text/javascript" src = "./DirectoryTree.js"></script>
 </head>
 <body>
-    <div id = "tree"></div>
+    <div id = "tree" nameKey = 'nk' childrenKey = 'ck' actionKey = 'ak'></div>
     <script>
 	    let treeData = [
 	    	{
-                name : "ddd" ,
-                action : [
+                nk : "ddd" ,
+                ak : [
                     {mouseover : function(){console.log(1)}} ,
-	                {click : function(){console.log(2)}}
+	                {click : function(){console.log(this)}}
                 ] ,
-                children : [
+                ck : [
                     {
-                        name : "ccc" ,
-                        children : [
+                        nk : "ccc" ,
+                        ck : [
                             {
-                                name : "sgf" ,
-                                children : []
+                                nk : "sgf" ,
+                                ck : []
                             } ,
                             {
-                                name : "dffgsf" ,
-                                children : []
+                                nk : "dffgsf" ,
+                                ck : []
                             } ,
                             {
-                                name : "dfgh" ,
-                                children : []
+                                nk : "dfgh" ,
+                                ck : []
                             }
                         ]
                     } ,
                     {
-                        name : "gsdf" ,
-                        children : [
+                        nk : "gsdf" ,
+                        ck : [
                             {
-                                name : "4352" ,
-                                children : [
+                                nk : "4352" ,
+                                ck : [
                                     {
-                                        name : "dfads" ,
-                                        children : []
+                                        nk : "dfads" ,
+                                        ck : []
                                     }
                                 ]
                             }
                         ]
                     } ,
                     {
-                        name : "fda" ,
-                        children : []
+                        nk : "fda" ,
+                        ck : []
                     }
                 ]
             } ,
             {
-            	name : "lalala" ,
-                children : [
+            	nk : "lalala" ,
+                ck : [
                     {
-                    	name : "dfldkjfl" ,
+                    	nk : "dfldkjfl" ,
                     } ,
                     {
-                    	name : "dfl" ,
-                        children : [
+                    	nk : "dfl" ,
+                        ck : [
                             {
-                            	name : "lllll" ,
-                                children : [
+                            	nk : "lllll" ,
+                                ck : [
                                     {
-                                    	name : "lalddd23232"
+                                    	nk : "lalddd23232"
                                     }
                                 ]
                             }
                         ]
                     } ,
                     {
-                    	name : "ldsfkjl"
+                    	nk : "ldsfkjl"
                     }
                 ]
             }

@@ -1,4 +1,9 @@
 ### 这是一个用javascript 实现的目录树  
+
+**2019-6-19 修改**
+> 1. 绑定事件 this重定向到对应数据
+> 2. 数据体关键字可以使用dom标签中key指定修改
+
 **DirectoryTreeTest.html** 是一个演示  
 **DirectoryTree.js** 实现整个树的生成和事件绑定  
 通过立即函数将**DirectoryTree**实例添加到**windows**对象里，外部直接通过条用**DirectoryTree**原型链上的**createTree**进行树的创建
