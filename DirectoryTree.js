@@ -1,4 +1,7 @@
 "user strict";
+/**
+ * @author yinhutjfox 493386452@qq.com
+ */
 (function(global)
 {
 	let nameKey = 'name';

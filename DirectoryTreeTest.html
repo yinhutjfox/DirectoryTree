@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- @yinhutjfox 493386452@qq.com   -->
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -10,7 +11,7 @@
     <script type = "text/javascript" src = "./DirectoryTree.js"></script>
 </head>
 <body>
-    <div id = "tree" nameKey = 'nk' childrenKey = 'ck' actionKey = 'ak'></div>
+    <div style="width:100px" id = "tree" nameKey = 'nk' childrenKey = 'ck' actionKey = 'ak'></div>
     <script>
 	    let treeData = [
 	    	{
@@ -83,6 +84,7 @@
             }
 	    ];
 	    DirectoryTree.createTree(document.querySelector("#tree") , treeData);
+	    console.log(DirectoryTree)
     </script>
 </body>
 </html>
