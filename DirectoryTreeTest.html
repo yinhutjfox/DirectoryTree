@@ -7,84 +7,101 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DirectoryTreeTest</title>
-    <link rel = "stylesheet" href = "./DirectoryTree.css" />
-    <script type = "text/javascript" src = "./DirectoryTree.js"></script>
+    <script type="text/javascript" src="./DirectoryTree.js"></script>
 </head>
 <body>
-    <div style="width:100px" id = "tree" nameKey = 'nk' childrenKey = 'ck' actionKey = 'ak'></div>
-    <script>
-	    let treeData = [
-	    	{
-                nk : "ddd" ,
-                ak : [
-                    {mouseover : function(){console.log(1)}} ,
-	                {click : function(){console.log(this)}}
-                ] ,
-                ck : [
-                    {
-                        nk : "ccc" ,
-                        ck : [
-                            {
-                                nk : "sgf" ,
-                                ck : []
-                            } ,
-                            {
-                                nk : "dffgsf" ,
-                                ck : []
-                            } ,
-                            {
-                                nk : "dfgh" ,
-                                ck : []
-                            }
-                        ]
-                    } ,
-                    {
-                        nk : "gsdf" ,
-                        ck : [
-                            {
-                                nk : "4352" ,
-                                ck : [
-                                    {
-                                        nk : "dfads" ,
-                                        ck : []
-                                    }
-                                ]
-                            }
-                        ]
-                    } ,
-                    {
-                        nk : "fda" ,
-                        ck : []
-                    }
-                ]
-            } ,
-            {
-            	nk : "lalala" ,
-                ck : [
-                    {
-                    	nk : "dfldkjfl" ,
-                    } ,
-                    {
-                    	nk : "dfl" ,
-                        ck : [
-                            {
-                            	nk : "lllll" ,
-                                ck : [
-                                    {
-                                    	nk : "lalddd23232"
-                                    }
-                                ]
-                            }
-                        ]
-                    } ,
-                    {
-                    	nk : "ldsfkjl"
-                    }
-                ]
-            }
-	    ];
-	    DirectoryTree.createTree(document.querySelector("#tree") , treeData);
-	    console.log(DirectoryTree)
-    </script>
+<div id="tree" nameKey='nk' childrenKey='ck' actionKey="ak"></div>
+<script>
+    let treeData = [
+        {
+            nk: "ddd",
+            ak: {
+                mouseover: function () {
+                    console.log(1)
+                },
+                click: function () {
+                    console.log(456)
+                    console.log(this)
+                }
+            },
+            ck: [
+                {
+                    nk: "ccc",
+                    ck: [
+                        {
+                            nk: "sgf",
+                            ck: []
+                        },
+                        {
+                            nk: "dffgsf",
+                            ck: []
+                        },
+                        {
+                            nk: "dfgh",
+                            ck: []
+                        }
+                    ]
+                },
+                {
+                    nk: "gsdf",
+                    ck: [
+                        {
+                            nk: "4352",
+                            ck: [
+                                {
+                                    nk: "dfads",
+                                    ck: []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    nk: "fda",
+                    ck: []
+                }
+            ]
+        },
+        {
+            nk: "lalala",
+            ck: [
+                {
+                    nk: "dfldkjfl",
+                },
+                {
+                    nk: "dfl",
+                    ck: [
+                        {
+                            nk: "lllll",
+                            ck: [
+                                {
+                                    nk: "lalddd23232"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    nk: "ldsfkjl"
+                }
+            ]
+        }
+    ];
+    DirectoryTree.createTree({
+        el: '#tree' ,
+        data: treeData ,
+        defaultClick: function() {
+            console.log(123);
+            console.log(this);
+        },
+        nodeHoverStyle: {
+            background : 'azure' ,
+            cursor : 'pointer'
+        } ,
+        customNodeStyle: {
+            color: 'red'
+        }
+    });
+</script>
 </body>
 </html>
